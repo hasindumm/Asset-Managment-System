@@ -1,0 +1,395 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title></title>
+
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+	
+	
+	<style>
+
+	.sidebar-sticky{
+	
+	 width: 100px;
+    height: 1000px;
+  
+	margin-right: 0px;
+	
+	}
+	
+	 
+.container-fluid{
+padding-top: 3px;
+
+}
+
+ 
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+
+	
+	
+
+  
+
+
+.nav-item{
+   font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-item1{
+   border-radius: 25px;
+    width: 200px;
+    height: 50px;
+    border: 2px solid #254b87;
+  background-color: #eafcf7;
+  
+}
+
+#img2 {
+
+background-image: url('https://i.pinimg.com/originals/a5/8d/47/a58d479d41264a7e7ce8686b87dd1e1f.jpg');
+
+}
+
+.vl {
+  border-left: 6px solid DodgerBlue;
+  height: 1000px;
+  position: absolute;
+  left: 17%;
+  margin-left: -3px;
+  top: 10;
+}
+
+  </style>
+  
+  
+  </head>
+
+  <body >
+      <!--Navbar-->
+<!--Main Navigation-->
+<header>
+
+   <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue scrolling-navbar">
+    <a class="navbar-brand" href="#"><strong></strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="http://www.horizoncollege.lk/akurahm/resources/images/akura-logo-report.png" alt="HTML5 Icon" style="width:110px;height:40px;"></a>
+        </li>
+    
+     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <li class="nav-item active">
+          <a class="nav-link" href="#" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/products100}">News/Updates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/gallary}">Gallery </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/feedback}">Feedback </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/aboutus}">About Us</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+           <li class="nav-item">
+           <p th:inline="text" font-size:15px;><img src="https://image.flaticon.com/icons/svg/660/660611.svg" alt="HTML5 Icon" style="width:45px;height:45x;">&nbsp;&nbsp;[[${#httpServletRequest.remoteUser}]]</p>
+          </li>
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+       <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" style="background-color:#354a55; font-size:20px;"/> 
+          </form>
+        </li>  
+      </ul>
+    </div>
+  </nav>
+
+
+
+<div class="vl"></div>
+  
+
+    <div class="container-fluid" >
+      <div class="row">
+  
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar" id="img2"> 
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item1">
+                <a class="nav-link active1" href="#" >
+                  <span data-feather="home"></span>
+                  Hard Assets <span class="sr-only">(current)</span>
+                </a>
+              </li>
+        <hr>
+        
+        <br>
+        <br>
+        
+        
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')"> 
+                <a class="nav-link" href="#" th:href="@{/products}">
+                  <span data-feather="disc"></span>
+                  Software
+                </a>
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')">
+                <a class="nav-link" href="#" th:href="@{/icon}">
+                  <span data-feather="shopping-cart"></span>
+                  Hard Asset
+                </a>
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')">
+                <a class="nav-link" href="#" th:href="@{/products6}">
+                  <span data-feather="alert-triangle"></span>
+                  Maintenance
+                </a>
+        
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')">
+                <a class="nav-link" href="#" th:href="@{/icon2}">
+                  <span data-feather="book-open"></span>
+                  Reservation
+                </a>
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link" href="#" th:href="@{/icon3}">
+                  <span data-feather="layers"></span>
+                  Reports
+                </a>
+              </li>
+            </ul>
+            
+            <p sec:authorize="hasRole('EXUSER')"> Please Enter Your Details Here</p>
+ 
+            <a sec:authorize="hasRole('EXUSER')" href="#" th:href="@{/product20form}"><button type="button" class="btn btn-danger btn-rounded">External User Details</button></a>
+
+            <a sec:authorize="hasRole('ASTAFF')" href="#" th:href="@{/products35}"><button type="button" class="btn btn-danger btn-rounded">Authorized File Upload </button></a> 
+          </div>
+        </nav>
+         
+   
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          
+		    <br>
+			  <br>
+			  <br>
+			   <div sec:authorize="hasRole('ADMIN')">  
+		<a href="#" th:href="@{/product2/new}"><button type="button" class="btn btn-primary btn-lg btn-block">Add New Property</button></a>		  
+		 </div>
+		 
+		  
+		  <br>
+		  
+		  
+		  <div class="container mt-3">
+  <h2>Property Table</h2>
+
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-striped">
+    <thead class="light blue black-text">
+      <tr>
+             <!--  <th> <strong> Id</th> -->
+                <th> <strong> Serial No</strong></th>
+                <th> <strong> Service Provider</strong></th>
+                <th> <strong> Date Purchased</strong></th>
+                <th> <strong> Warranty</strong></th>
+                <th> <strong> Status</strong></th>
+             <!--    <th>Value</th>
+                <th>Attachment</th>
+                <th>Funded By</th>
+                <th>Purchased Details</th>
+                <th>Property Details</th> -->
+                <th> <strong> Area</strong></th>
+                <th> <strong> Facilities</strong></th>
+                
+                
+		<th sec:authorize="hasRole('ADMIN')" ><strong>EDIT</strong></th>
+		<th  sec:authorize="hasRole('ADMIN')"><strong>VEIW</strong></th>
+		<th sec:authorize="hasRole('ADMIN')" ><strong>DELETE</strong></th></strong>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+    
+      <tr>
+                 <tr th:each="product2 : ${products2}">
+                <!-- <td th:text="${product2.id}"><a href="/product2/${product2.id}">Id</a></td> -->
+                 <td th:text="${product2.serial_no}">Serial No</td> 
+                <td th:text="${product2.service_provider}">Service Provider</td>
+                <td th:text="${product2.date_purchased}">Date Purchased</td> 
+                <td th:text="${product2.warranty}">Warranty</td>
+                 <td th:text="${product2.status}">Status</td>
+             <!--    <td th:text="${product2.value}">Value</td>
+                <td th:text="${product2.attachment}">Attachment</td>
+                <td th:text="${product2.funded_by}">Funded By</td>
+                <td th:text="${product2.purchased_details}">Purchased Details</td>
+                 <td th:text="${product2.property_details}">Property Details</td> -->
+                 <td th:text="${product2.area}">Area</td>
+                 <td th:text="${product2.facilities}">Facilities</td>
+             
+       
+
+                <td sec:authorize="hasRole('ADMIN')" ><a th:href="${ '/product2/edit/' + product2.id}"><button type="button" class="btn btn-primary">edit</button></a></td>
+                <td sec:authorize="hasRole('ADMIN')" ><a th:href="${'/product2/' + product2.id}"><button type="button" class="btn btn-primary">veiw</button></a></td>
+                <td sec:authorize="hasRole('ADMIN')" ><a th:href="${'/product2/delete/' + product2.id}"><button type="button" class="btn btn-primary" onclick="return confirm('Are You Sure to Delete?');">delete</button></a></td>  
+
+
+
+
+		
+		
+      </tr>
+     
+    </tbody>
+  </table>
+  
+ 
+</div>
+
+		  
+		  
+        </main>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+<footer class="page-footer font-small light blue">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-12 py-5">
+          <div class="mb-5 flex-center">
+
+            <!-- Facebook -->
+            <a class="fb-ic">
+              <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic">
+              <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+          </div>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+     <img src="https://www.aspitio.com/wp-content/uploads/2017/10/aspitio-logo2x.png" alt="HTML5 Icon" style="width:200px;height:40px;"></a>
+     
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+ 
+
+    <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+
+    <script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+   
+
+
+ <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+
+
+
+
+ </body>
+</html>

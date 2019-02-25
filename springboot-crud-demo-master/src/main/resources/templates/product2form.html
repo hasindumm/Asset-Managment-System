@@ -1,0 +1,537 @@
+<!-- property add page -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title></title>
+
+	<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> 
+	
+	
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+	
+	
+	<style>
+
+	.sidebar-sticky{
+	
+	 width: 100px;
+    height: 1000px;
+  
+	margin-right: 0px;
+	
+	}
+	
+	
+.container-fluid{
+padding-top: 3px;
+
+}
+
+
+
+select#soflow, select#soflow-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}
+
+
+
+  
+
+
+.nav-item{
+   font-weight: bold;
+    font-size: 18px;
+}
+
+div#content {
+    background-image: url('https://i.pinimg.com/originals/8b/b8/7b/8bb87b662cbd7e3eddcf4a321c0460cc.jpg');
+    background-color: rgba(255,255,255,0.7);
+    background-blend-mode: lighten;
+    /* You may add things like width, height, background-size... */
+}
+
+.nav-item1{
+   border-radius: 25px;
+    width: 200px;
+    height: 50px;
+    border: 2px solid #254b87;
+  background-color: #eafcf7;
+  
+}
+
+#img2 {
+
+background-image: url('https://i.pinimg.com/originals/a5/8d/47/a58d479d41264a7e7ce8686b87dd1e1f.jpg');
+
+}
+
+.vl {
+  border-left: 6px solid DodgerBlue;
+  height: 1500px;
+  position: absolute;
+  left: 17%;
+  margin-left: -3px;
+  top: 10;
+}
+
+  </style>
+  
+  
+  </head>
+
+  <body >
+  
+   <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+      <!--Navbar-->
+<!--Main Navigation-->
+<header>
+
+   <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue scrolling-navbar">
+    <a class="navbar-brand" href="#"><strong></strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="http://www.horizoncollege.lk/akurahm/resources/images/akura-logo-report.png" alt="HTML5 Icon" style="width:110px;height:40px;"></a>
+        </li>
+    
+     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <li class="nav-item active">
+          <a class="nav-link" href="#" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/products100}">News/Updates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/gallary}">Gallery </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/feedback}">Feedback </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/aboutus}">About Us</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+           <li class="nav-item">
+           <p th:inline="text" font-size:15px;><img src="https://image.flaticon.com/icons/svg/660/660611.svg" alt="HTML5 Icon" style="width:45px;height:45x;">&nbsp;&nbsp;[[${#httpServletRequest.remoteUser}]]</p>
+          </li>
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+       <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" style="background-color:#354a55; font-size:20px;"/> 
+          </form>
+        </li>  
+      </ul>
+    </div>
+  </nav>
+
+
+
+<div class="vl"></div>
+  
+
+    <div class="container-fluid" >
+      <div class="row">
+  
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar" id="img2"> 
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item1">
+                <a class="nav-link active1" href="#" >
+                  <span data-feather="home"></span>
+                  Hard Assets <span class="sr-only">(current)</span>
+                </a>
+              </li>
+        <hr>
+        
+        <br>
+        <br>
+        
+        
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')"> 
+                <a class="nav-link" href="#" th:href="@{/products}">
+                  <span data-feather="disc"></span>
+                  Software
+                </a>
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')">
+                <a class="nav-link" href="#" th:href="@{/icon}">
+                  <span data-feather="shopping-cart"></span>
+                  Hard Asset
+                </a>
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')">
+                <a class="nav-link" href="#" th:href="@{/products6}">
+                  <span data-feather="alert-triangle"></span>
+                  Maintenance
+                </a>
+        
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')">
+                <a class="nav-link" href="#" th:href="@{/icon2}">
+                  <span data-feather="book-open"></span>
+                  Reservation
+                </a>
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link" href="#" th:href="@{/icon3}">
+                  <span data-feather="layers"></span>
+                  Reports
+                </a>
+              </li>
+            </ul>
+            
+            <p sec:authorize="hasRole('EXUSER')"> Please Enter Your Details Here</p>
+ 
+            <a sec:authorize="hasRole('EXUSER')" href="#" th:href="@{/product20form}"><button type="button" class="btn btn-danger btn-rounded">External User Details</button></a>
+
+            <a sec:authorize="hasRole('ASTAFF')" href="#" th:href="@{/products35}"><button type="button" class="btn btn-danger btn-rounded">Authorized File Upload </button></a> 
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          
+		  <br>
+		  <br>
+		  <br>
+		  
+		
+		 <!-- Card -->
+<div class="card mx-xl-5" id="content">
+
+    <!-- Card body -->
+    <div class="card-body">
+
+        <!-- Default form subscription -->
+        <form autocomplete="off" class="form-horizontal" th:object="${product2}" th:action="@{/product2}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+            <p class="h4 text-center py-4">Add New Property</p>
+
+            <br>
+            <label for="defaultFormCardNameEx" class="black-text font-weight-bold">Serial No:*</label>
+            <input type="text" id="defaultFormCardNameEx" class="form-control"  th:field="*{serial_no}" placeholder="Enter Serial No" required>
+
+            <br>
+
+           
+            <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Service Provider:*</label>
+            <input type="text" id="defaultFormCardEmailEx" class="form-control" th:field="*{service_provider}" placeholder="Mention the Service Provider Details" required>
+
+			
+		
+			<br>
+            <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Warranty:</label>
+                        <br>
+            <table>
+			<tr>
+  				 <td><label class="black-text font-weight-bold">Years:</label></td>
+  				<td><input type="number" th:field="*{warranty}" name="name" min="0" max="100" placeholder="0"/></td>
+  				<td>   </td>
+  				<td><label class="black-text font-weight-bold">Months:</label></td>
+   				<td>
+      			<td><input type="number" th:field="*{warranty}" name="name" min="0" max="11" placeholder="0"/></td>
+   				</td>
+				</tr>
+			</table>
+          
+           <br>
+            
+			
+            <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Status:</label>
+           
+             <br>
+            <select  th:field="*{status}" style = "margin-left:10px" id="soflow"v>
+           <option  th:value="'Good'" th:text="Good"></option>
+           <option  th:value="'Bad'" th:text="Bad"></option>
+           <option  th:value="'Repair'" th:text="Repair"></option>
+           </select>
+            <br>
+            
+			
+            <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Value (Rs):</label>
+          <input type="number"  min="0.00" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" id="c1" class="form-control" th:field="*{value}" placeholder=" 0000.00">
+			
+			
+			<br>
+            <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Attachment:</label>
+               <progress value="0" max="100" id="uploader">0%</progress>
+            <input type="file" id="fileButton" class="form-control">
+   			<p id="output"></p>	
+             
+             <br>
+            <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Funded By:</label>
+            <input type="text" id="defaultFormCardEmailEx" class="form-control"  th:field="*{funded_by}" placeholder="If Someone funded it Enter Details">
+             
+             <br>
+            <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Purchase Details:</label>
+            <input type="text" id="defaultFormCardEmailEx" class="form-control"  th:field="*{purchased_details}"  placeholder="Enter Purchase Details">
+			
+			
+			 <br>
+            <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Property Details:</label>
+            <input type="text" id="defaultFormCardEmailEx" class="form-control"  th:field="*{property_details}"  placeholder="Enter Property Details">
+            
+             <br>
+            <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Area (sqft):*</label>
+            <input type="number" id="defaultFormCardEmailEx" class="form-control" min="0" th:field="*{area}" placeholder="xxx" required>
+            
+             <br>
+            <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Facilities:</label>
+            <input type="text" id="defaultFormCardEmailEx" class="form-control"  th:field="*{facilities}" placeholder="Mention the Facilities Provide Here" >
+            
+            
+			
+	<br>
+       <label for="defaultFormCardEmailEx" class="black-text font-weight-bold">Date Purchase:*</label>
+  
+       <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD"  type="date" max="2019-02-07" th:field="*{date_purchased}" required placeholder="Select Date">
+      
+ 
+			
+            <div class="text-center py-4 mt-3">
+                <button class="btn btn-primary" type="submit">Submit<i class="fa fa-paper-plane-o ml-2"></i></button>
+            </div>
+        </form>
+        <!-- Default form subscription -->
+
+    </div>
+    <!-- Card body -->
+
+</div>
+<!-- Card -->
+		 
+		 
+		 
+		 
+		 
+		  
+        </main>
+      </div>
+    </div>
+    
+        <!-- Footer -->
+<footer class="page-footer font-small light blue">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-12 py-5">
+          <div class="mb-5 flex-center">
+
+            <!-- Facebook -->
+            <a class="fb-ic">
+              <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic">
+              <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+          </div>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+     <img src="https://www.aspitio.com/wp-content/uploads/2017/10/aspitio-logo2x.png" alt="HTML5 Icon" style="width:200px;height:40px;"></a>
+     
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+ 
+
+    <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+	
+	
+	
+	<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+<!-- Include jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+	
+	
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    <script>
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+	 if(dd<10){
+	        dd='0'+dd
+	    } 
+	    if(mm<10){
+	        mm='0'+mm
+	    } 
+
+	today = yyyy+'-'+mm+'-'+dd;
+	document.getElementById("date").setAttribute("max", today);
+	
+	
+	</script>
+	
+	
+		<script type="text/javascript">
+
+
+
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyCI1DDxaIipgviT7lZxWEzeSBDkbTdr8oY",
+  authDomain: "imageupload-6ba7f.firebaseapp.com",
+  databaseURL: "https://imageupload-6ba7f.firebaseio.com",
+  projectId: "imageupload-6ba7f",
+  storageBucket: "imageupload-6ba7f.appspot.com",
+  messagingSenderId: "49461821966"
+};
+firebase.initializeApp(config);
+
+var uploader=document.getElementById('uploader');
+var fileButton=document.getElementById('fileButton');
+fileButton.addEventListener('change',function(e){
+    var file=e.target.files[0];
+	 
+    var storageRef=firebase.storage().ref(file.name);
+    var task=storageRef.put(file);
+  task.on('state_changed',
+      function progress(snapshot){
+          var precentage=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+          uploader.value=precentage;
+      },
+      function error(err){
+
+      },
+
+      function complete(){
+         
+          if(uploader.value==100){
+window.alert("successful!");
+              
+
+		var storageRef=firebase.storage().ref(file.name);
+  storageRef.getDownloadURL().then(url=> {
+    
+    var url=url;
+
+document.getElementById('output').innerHTML ='<input type="hidden" class="form-control" name="attachment" value="' +url+'" required></input>';
+	  console.log(url);
+	  myFunction();
+  }).catch(function(error) {
+    // Handle any errors
+  });
+          }
+      }
+  );	
+
+});
+
+
+
+</script>
+	
+	
+  </body>
+</html>

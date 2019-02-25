@@ -1,0 +1,354 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Asset Management System</title>
+
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+	
+	
+	<style>
+
+	.sidebar-sticky{
+	
+	 width: 100px;
+    height: 1000px;
+  
+	margin-right: 0px;
+	
+	}
+	
+	.nav-item1{
+    width: 200px;
+    height: 50px;
+    border: 2px solid Tomato;
+}
+.container-fluid{
+padding-top: 3px;
+
+}
+
+.vl {
+  border-left: 6px solid DodgerBlue;
+  height: 1200px;
+  position: absolute;
+  left: 17%;
+  margin-left: -3px;
+  top: 10;
+}
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.pagination {
+  margin-bottom: 30px;
+}
+
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+
+  
+
+
+.nav-item{
+   font-weight: bold;
+    font-size: 18px;
+}
+
+
+  </style>
+  
+  
+  </head>
+
+  <body >
+      <!--Navbar-->
+<!--Main Navigation-->
+<header>
+
+   <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue scrolling-navbar">
+    <a class="navbar-brand" href="#"><strong></strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="http://www.horizoncollege.lk/akurahm/resources/images/akura-logo-report.png" alt="HTML5 Icon" style="width:110px;height:40px;"></a>
+        </li>
+    
+     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <li class="nav-item active">
+          <a class="nav-link" href="#" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/products100}">News/Updates</a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/gallary}">Gallery </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/feedback}">Feedback </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/aboutus}">About Us</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+           <li class="nav-item">
+           <p th:inline="text" font-size:15px;><img src="https://image.flaticon.com/icons/svg/660/660611.svg" alt="HTML5 Icon" style="width:45px;height:45x;">&nbsp;&nbsp;[[${#httpServletRequest.remoteUser}]]</p>
+          </li>
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+       <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" style="background-color:#354a55; font-size:20px;"/> 
+          </form>
+        </li>  
+      </ul>
+    </div>
+  </nav>
+
+	
+
+    <!-- <div class="container-fluid" >
+      <div class="row">
+	 -->
+               
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          
+		  <br>
+		  <br>
+		  <br>
+		 
+		  <div class="col-sm-12" style="margin-left: -150px">
+		  
+		   <h1 class="my-4">News And Updates
+      
+      </h1>
+		  <a th:href="@{/product100/new}">  <button sec:authorize="hasRole('ADMIN')" type="button" class="btn btn-light-blue btn-block">Add News/Event</button></a>
+	<br>
+	<table>
+        <tr>
+                 <tr th:each="product100 : ${products100}">	  
+		  		 
+<!-- News jumbotron -->
+<div class="jumbotron text-center hoverable p-4">
+
+  <!-- Grid row -->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+      <!-- Featured image -->
+      <div class="view overlay">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPEA8PDxIPEA8QEBAPDxAPDw8PDw8PFRUWFhYVFRUYHSggGBolGxUVIjEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGi0mHyUtLS4tLy0tLS8rLS8tLy0rLy0tLS0tLSsrLS0vLSsvLS8tLS0vLS0tLS0tLS0tLS0tLf/AABEIALkBEAMBEQACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABAECBQYHAwj/xAA+EAABAwEEBAwEBAYDAQAAAAABAAIDEQQFEiExQVGSBhMVIlJTYXGBkbHhMnKhwQcjQtEUJDNik/GCsvBD/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAEEBQMCBv/EADURAAIBAwEFBgUEAwADAQAAAAABAgMEESEFEjFBURNhcYGRwSIysdHwFEKh4SNS8SRykhX/2gAMAwEAAhEDEQA/AO4oAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgMdfF7x2VtX5uPwt1nt7lYt7aVZ6cDjWrxpLU1KbhnKTlhaNgC1o7Mp41MuW0J50Mnd3CkmhlbVpNMQFM/RVq2z1+x6nelfP960Nngma9oc01adBWZKLi8M0YyUllHovJ6CAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAoUByHhbejpZ5HVyqQ0bGjQvoLeHZwSRkVpb8m2a1/G5q5GZTnTMhY7zdTDiOGtaVNK7aL3uxbyct6SWDe+Bl8c4ROPNfkOx2pZm0LZOO+uRfsa7Ut1m8rDNkIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIC2QVB7ipXEh8Dh1+NIe4HaV9HEx5GuzroeBZ5iCvSk0c5QTNq4PWykjKHMEH6qZ/FBpniK3ZHaYzUA7QCvlWsM+iXAuUEhAEAQES23nDB/Ve1vZXPyXWnQqVPlRyqVoQ+ZltgvSGevFPDiNI10U1aFSl8yFOvCp8rJq4nUIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIDlvDu6DHM54HMkq9p79I81t2lXfguqMy4p7sjRLTCriKxHazNSQbHwVshltETBpc4eAyrVc6k9yDlyPcI70kjs7bwhGXGMy5unWMj6L5xm0ivKMPWM81AHKMPWM80B5Wi9Y2irS151ND2N+rivUYpvV4PMm0tFk1a+L1vKSrYWwRN7J4i/eJWhS/SQ1bbfgU6iuZ8MJGm2y4rylJLjESdZtMZP1KuK/orRP+Ct+iqcWbR+H9xfwbnz2mZnGObhbG1+INGsuOs9ypXl4qkdyPAtW1tuPefE3jlGHrGeazi6OUYesZ5oByjD1jPNAOUYesZ5oByjD1jPNAOUYesZ5oByjD1jPNAOUYesZ5hAOUYesZ5hAOUYesZvBAOUYesZvBAOUIesZvBAOUIesZvBAOUIesZvBAV5Qh6xm8EA5Qh6xm8EB7RSNcKtII2jMIC9AEAQBAEAQEO9LujtMZjkGWojS07QulKrKnLKPE4Kawzl/CXgbaYs4mGRmecYLjTu0rctrqjP5nh95lXFCpD5VnwNZguOcuw8XICdOIFg8S7Qr8pQxltFJbx0ngZd1lsLccs0LrQ4Uo14eGDZUaSse9lVrfDCL3fDGTSteypfFKSySG0IrkcRe6vYXErKksPBpJ5RQtGwKCSmEIBhCAYRsQDCEAwjYgGEbEBTCNgQFcI2IBhCAYRsCAYRsQDCNiAYRsQDCNiAYRsQDCOxAUwjYgK4QgGEIBhGwIBhCA2Dg8fyG95UAyaAIAgCAIAgId7XjHZYnTSmjW0GWkk6AF0pUpVZbsTxUqKEd5nOr44cTSkiImJmrDk4jvX0Nvs2lBJy1ZgXG0Ksm1HRGsz2+SQ1cXOO1xJ9VpRjCC0WDNk5zerbLWyu0k07kckSoPmdFh/pxfIF8XP5n4s+xh8qLl5PQQBAEAQBAEAQBAFACAKQEAQBAFACkBAEAQBAEBneDZ/J/5O9VAMqgCAIAgCAIDmn4tXmQ6Gzg5Bpkd2kmg+gPmtXZ0PhcjPvJaqJzmC1ObnqqtaM2jOnTUiS22Erqpld08FTMVO8RunVI/gi+QL5CXFn1K4FVBIUAKQEBHtdq4oYi1zhrw0y81zqTcI7yWfT3OtGmqkt1yx459iywW9kwdhqC2lQ6labclXtL2ncp7vLqWLyxqWrW9rnoSiVcKRBbeYL+LEchcNXN0bdKpu7aq9luPPHlw68S9GyTpdt2i3c44Pj04E8K2UWFICAIAgCAKAFICAIAgCAIAgM3waP5Tvnd6qAZdAEAQBAEAQHH/wAT2E2410FkdO6n+1u7Px2S8zJvcqTNStFlMdei7ILTnT00M+nVy9SK00NFxTO8kSI3VovedDljU68Phj+QL5N8T6QogCAIAgMdfslIj2lVb2e5bzl3fXQt2EN+5hHv+mph4i6zStJ0UGIbWnT/AO7FiSpysK0Ki+VrX3+6N9VI7Qo1Kb+ZN49n7M2hrgQCMwRUHsX0kWmso+WlFxbT4oxV086aeT/iPE1+yoUfjuqkuiS9zSuPgs6UOrcvYyj3hoq4gAayaBXpSUVlvCM6MZSe7FZZHbeEJIAe2p0aRXxK4K7otpby1LMrG4UXJweF+eJU26LEG424iaU7VMrqjGe45LJ5jZ15Q7RQeD2lka0VcQ0bSaBdpSUVmTwjhCEpyUYrLYikDgHNIIOgjWohOM4qUXlE1KcqcnGaw0Wi0sLsAc0v6INSvPbU9/cys9D12FTs+03Xu9eQmtLGfG5rdgJzPgpqVYU/neBSoVKvyRbLIrdE4hrXtqdANQT3VXONzSlLdUtfT6nSdnXhHecdPX6EhWCsEAQBAEAQGZ4MnmSfOVAMygCAIAgCAIDnP4rXaSYbQ0ajG7sINW+p8lq7OqaOPmULyHBmlNkE0JioOMGbSdfZ/wC2BbUZZ1Macd1mCkBBodIyO2vauc1hliDyj0szuc35h6qG9GTjVHZHaG/I1fKm+WqQEAQBAYm++c6GPpOFe6oVDaHxQjT/ANpJe5p7L+GpOr/rFs9b6snGMxD4m+i7XVuq9Jwfl4lazuXb1VP18CJdNu/LfG7Sxri3tbs8Fn7KuHh0J8Y/T+jS2xbLKuKfCXHx5PzJFxjDC55/U5zvAZfZWdn6wlP/AGk2VdqfDUhTX7YpEOC0NmmLpnNEbPha4gAnVlrVNXEK9y3UklCPBPm+vf8A8L7tqltapUotznxa5Lp3C3R/xEgELeaPifSjV7vU7zdp0lonrLl/Z4scWO9UrS1a+VPL8yl/Q4HMc3YPMa02vTxSjNcYsjYtXNacHwks/nqTL5la6Bp1uwlvbUK3dVIu1cn+5ad7fApWlKSvFFftbz3JcRc04FnJP6C4ff7rjsmebZdzf3O22aeLnK5pfY8rkgP5k+s1DO3afRebCHaVJ3L5vC8D3tKp2dKnarksvxI13WtrZXmbS7IOcK4f29lXpXEaV5U7fi+D6ItVraVaypq34Liur++TKNsbXStmaWloGWGhBNCFqunCrOFVPOM/yY8atShTnRkmt7H8E9WSoEAQBAEAQGX4MnKUf3qAZtAEAQBAEAQEG+bubaoXwv0OGR6LhoK6UqrpzUkeKkFOOGcSvi7JbJK5jgWuafAjURtC+hpVVJKUTHq0/wBsiLI1k/xHBLox6ndjhr79Ks5UkVcSpvuIYsz45Iw8Uq9lCM2u5w0HWuM1iL8Gd4SUmmuqOxSavlb6L5c3ixSAgCAIDEP59sYNTAT9P3Kz6z37unHom/ZGnbrcsqs+rS+5litAzDWL1sxikqMgcx3HUsDalGVKauKfg/zvPo9k141qbtqmvNeH9GZjiIsoaNPFg+JFSta0huUIR7kY99U37mcu/wCmhi7klja57ZMNTTCXaKitRVY+zakKNSdKro88zb2pTnXpQq0dV3d+DOttMdQxrmknQG5+i21XpuSipJswHbVlFzcWkuun1MfwhZ+W07Cq+0Y71tP1LOy57t1Dv0/g8LHA6WPG/wCFkeCMbSB8S4WClWhCc1pFYXe+vsiztGcaEpwg/ik8yfRdPdkW7mPkxQtyYXBz3bANSo2kZydS3jos6vovuzQvZU4Kncz1aWi6vl5Iz1plbDHUDJoAAW9Jxo0m1wS+h85BSr1km9ZP6kaWxRzxiSmEubiqNtFx7KldUoynHOV6Hfta1nWlCEsYfk/IhcHg4SPArgDTXZiqKeOlZmzIOFxUjB5gvxeZq7Vmp2tOc1ibx9NfIz63j50IAgCgBSAgMrwaOcw7R6KAZ1AEAQBAEAQBAYHhddMM8DnyCjo2kteNIGztCtWlWUZqK4M4V6alHLOR2y7NJjIcNo0+I1LbTMtxIcdqkiycMTKg0IqMtC67yksSOLp4e9HidEuS92WuMPbk5oDXt2EBYF3bdjLTg+H2Ni2r9rHXiuJkFVLIQBAUc2oIOvwQEVt2wg1wCumpqVX/AEtDOdxZ8Cz+tuMY336ktWCseU9nZJQPAcAaiq8yjGS3ZLKPUJyhLei8M9aKTy3nUgzXVE81IoTsNFXrWlGs8zjl/nQs0LyvQWKcsL1+pIs9lZGKMaBt2nxXSlQp0liEcHitcVazzUk2XTQteMLhUaaL3KKksPgc4ycWpReGi4MFMIADaUoNFNilJRWFwIlJybb4stggawUYA0aTTWe1eYwjHO6sZ1PU6kp43nnGiE8DXjC4VC9SipLD4ERk4vMXhkUXVHo59OjjcG+Srfo6PTyy8emcFr9fcf7eeFn1xklwxNYMLQGjYF3hCMFiKwitUqTqS3pvL7y9ezwFACkBAEAQGT4NHnTeH2UAz6AIAgCAIAgCAw3C6bBZJTtGEeKs2cc1Ucbh4gziFvnc11Wkg7Qt5GSylltbpXsidQmR7WA9riBUjxUTkoxcmuAinKSSN6uG4XWRzquBxBpNK00bPFY9zdKqkkjToW7pvLZnVSLIQBAEAQBQApAQBAEAQBAEAQBAFACkBAEAQBQApBkeDh/Ml7goBsKAIAgCAIAgCA1T8RC7+GFCAMVXV0kAalfsMb7Kl38qONWtwLs6/RbKRmtkm4GsNpgGE146Ohxawa1pTsXivH/DPwZ6pS/yRXejrE3xHw9F82bZYoB5yTsbk57Gn+5zW+q8Tq04fPJLxaR0p0alT5It+Cb+hSO0RuNGvY47GuaT9FEK9KbxGSb7mmTO3qwWZwaXemj0c4AVJAG05ALo3jVnNJt4R4i2RdZH/kZ+64q5ovhOPqju7SutXTl/8v7Huu5XCAKAEBAtd6siNCHk9gAHmVUubyFusyT8loXbSxnc/LKPm9fTBMhfia11KYgDQ6qqzTlvxUscSrVhuTcc5w8F69HgKQEAQBQApAQBAEAQBAZDg9/Wk+UKAbEgCAIAgCAIAgNC/E+10ayPsr5/6Wps+OjZRu5apHJJHVJWqjPZsHASxcbacWqGN8x76hrfq4Lhez3KD79DpbR3qy7tTpM3xFfOm0WKQYbhFQNbkMROnXRZ21JKNs+/BqbHi5XS7k2TLohDYWZCrhiJ1mua6bPpqFvDvWfU5bTqudzPuePQlygUNaEU1q6UDEXDECZZKD4g1uWjTWn0WXZRUq9ap34Xka+0JShb0aWeWX5/jMytQyAgCAIDAX5z5mR9w8/9rF2t8cqdLq/6+5u7FW5GrWfJf39jPAalspY0MNvLyyqkgICJeNs4lmKlSdAVe6rqhSdR8izZ27uKyp+vgSIXEtaXZEgE00A0XWm24Jy44OVWMY1JRjwTZevZzCAIAgCAIAgJ1wH893yD7qAbIgCAIAgCAIAgOS/iZacVoc3o5fQBblnHFJGXcvM2c+J0q4VmdM/DawYbFa7QRnI9sTT/AGtwk/U/RZu056xh5l2xj80/I2Cb4nd6yTQLFINf4QOxSNYNg8ysTbMsqFNc3/Xub+w44dSo+Sx7+xno20AA1ADyC2Yx3YqK5GFOW9JyfN5PC8X4Ynnsp5pKW7FyfIQi5yUVzeCNc0X5AzIxFziRkdNPsqGzIv8ATpvm2/5NHa0//JaX7Ul7mPu/jXyvDJHAAGpcS7LuOtUqSqSvJxpzaS669OrL9Z0o2UJ1YJt9MLr0XQpbTLZ5A7jHOrnmcj2EJewq2jjWjNvXDyTY1KN4pUZ00tMrH5xRmbRbmsjEh/UAWjbUVWtO5hCj2z4Yz6mLC1nOv2MeOWvTmRbJC+dvGSvcA7NrGHCA3bkqtvCdxHtKzeHwSeNPLVly5qU7WXZUEsrjJpN57s6Ix9iiragASQ0k1cSTkMvrRUlST2goxziOurb5d/kX3Wl/+a5yxmWmiS545d2TJ3nbywiOPOR1AOyuhaN7duilGGspaIy7CzVduc3iEdX9jztNjLYy98kheBUkOIFdgA1KVarczVk2+by16JYQd7Jz3aMUo5wlhP1b1KXA97mve9znZhrakmlBU+oVXZM51IynNt64WS1tmFOnKEIRS5vC/O8hXkwvnbFic4EgZ6q6aLltGPaV6dJN68dfzvO+y59nb1KzS04PGvrz5GYZDxVXukkcANDnZeS1Y0lB53n5vQxp13UW7uRXgsMiWWR9pLjiLImmgDTQuPae5U6NWV3NtNqC004t+PFF+vShZQimk6j111UV4cCNA97LSI43Oc2tHAkuFNdarg5OneRp0W8fuWW/qWIxVWxlUrpZ/a8JP+D3tVtc+dsIcY2Vo5w0nLRXVsXa6uJfqIUE91Pi+fh3Feztoq2ncOO81wXLx7ytvsL24TE6SpNDz3HxXu4tMQzSbUvF+7PFrfZqJVknH/1XsjLBaC0RmN5eSqEBSCZcZ/mO9n7qAbMgCAIAgCAIAgOG8OrRitEp/uK+ioLEEjHqvMmaq3Mhd0cWd3uuwfw12QxaCI4y753EE+q+euqnaVpSNi3huU0iLL8Tu8rgdixAa5eJpaQToD2eWSwtpaXNJvh/Z9Fsr4rWrGPHX6GxrdPnTF37JVrYm5ueRQKjtCo1S3I/NLRGhsylvVu0l8sdWSpQIoSB+llB6K1TgqVNR5JFSrN1qrlzb+pj+DceUj9pDfLP7rJ2QnLtKr5v+/c2dtNRVOkuS/osv445I425u0ea9bWe+oUY8W/6PGxo7jnXl8qWPf2/k87/ABh4tmprQPt9l42uty3hBcMpeiOmxmqlzUm+L19WZoPDYw4aAwEeS16eNxY4YMWtntJZ45f1MTwebiklfsAHmfZZGzn2tzVq/n5obW1P8VrSo/mi/s8o3VtgLukQO+hoorPO0oZ6ez9yaCxsubjzzn1+xkL+kpFTpGi0L+ooW833Y9TN2dT7S5gujz6HpcseGBnbV3mf2XjZlPcto9+p02tU37qXdhGNu38y1Oef04nD0+6qQ/y7Rk/9V7Y92XKn+LZkV/s/fP0SJ1/OIiy1nNaF62reeOhm7PSdzTz1I90WQSRCr30q4FrXUFfDsoqGzaEalust8XlJ4+ho7UuZ0rhpRXBYbWX/AD3mUs9mZGOYANp1nvK1KVGnSWILBkVrirWeaksmOtd3snrJG7OpB2EhVbm1pXa46rTJctrutZPGMppPH5wIlitcsUjYnkuaXBpBzIrlkVn06lxaV40ZveizSq0ra9t5VoR3ZLP8a68vM2Jb582EAQEq5j/MN+UqAbQgCAIAgCAIC15oCdgJRashnz/wokrM/wCZfTQ4GLLiW8Dbu/ibbZ4qVbjDn/I3nH0XmtPs6cpdxNOO9NRO63x/RPzM/wCwXzZtGvS/E7vKkFqAg3hdzZs60dt2qvcW0LiG7P8A4WbW6qW096Hn0Z4xWW0tGEStwjIVGIgKvC2uILdjV071ktTu7Wo96dHXulhEiy2AMdxj3GSQ/qOgdwXWlaqM+0m3KXV8vBcjjWvHOHZwiox6Ln4vmeV+yYYiOkQFN7U7O3nLu+uhGz6faXMI9+fTU8LrhnETcBjDXVdzmuLhXxVPZ9GtG3juySzrqm/dF7aVahK4e/FtrTRpL6P6k2yWARkvJL5DpcfsNSuUbWMJOpJ5k+b9uhRr3kqkFTit2C5L36lt52ATAZ0cNBXu4t416bhI52tzO3qKpH/pGiup+DC+QkAc1oJwjv2qrQsHBbtSblFcFy8+pcuNpKbcqcFGT4vi/Lp48T0uuwyQ1Bc0tJqRQk+amzs5WzaUsp92vrk83t9C6SbhiS79PTB52+6S9+Njg01r3HaFN5YxuGpJ4kuZFltCVsnBrMXyKWm6HPaKvLpNZdop2DUvFTZ/aU3Gcm5dXy8EdKe0+yqJ04JR6Ln4snWOFzGBjy00AaMIIyGWat29KVOChJ5xpwx7lK6qwq1HOMWs6vXPsY2O6JGvxMkDe0aaKjPZ0u2dWnPdz3GhDakOwVGrT3sd5kTY6xlj3OfXPE7TXsWhClux3ZNyzxyZtStvTU4pRxwwY+G6ZoyeLkwg6dOfgs6OzZ0pN0ajiunE1JbVhVglXpKTXMyENkLQ6r3Oe4UxOOjuGpX6NHc1cm31fsuCM6vcdr8MYqK6L3fFkWzWOeGoY6MgmvPDjn2UK4U7apSb7OWjedVn6NFird0q6j2sHlLHwvH1TPWzXdR/GyHHJqoKNHcF6haf5e1qPMuXJLwR5qXv+LsaUd2PPm34snq4UAgCAkXUf5iPud9lANqQBAEAQBAEB5Wk8x/yu9CvUPmREuDPnnhC6srvmK+kjwMWXE3j8HLs509qcNAETO85n6Aeaz9o1MRUOpbs4auR0S+T+V3vZ/2CyTQNdk+J3eUBRAFICAIDD3zHJLRrGOoNZpQ9yztoU61an2dOPnlGpsyrQoVO1qS1xww/sZCw1wNBaWYQBQ0zp3K1bqSpqLjjC7vYp3TjKq5RlnLb4NfUkLuVwgCAIAgCgBAFICgBSAgCAIAgCgFQ1SD2u4Uni7yPRAbWoAQBAeBlQFDMgLDaAgPG0WtuFwJ0gjWdIUxeGmQ1lYOIX5dE5mfSORzamjgx1CF9BC4ptZ3kZMqM0+B0nglaobHZIoSTjzfJzH/G7Tq1ZDwWNdVe0qNrgaVCnuQSZkbZfcTw1uIDntca1GQPaq51ID54iSRNDmSc3+yACWLroN/2QF3GxdfBv+yAcbF18G/7IBxsXXwb/sgHGxdfBv8AsgHGxdfBv+yAcbF18G/7JkDjYuvg3/ZAONi6+Df9kyBxsXXwb/smQONi6+Df9kA42Lr4N/2TIHGxdfBv+yAcbF18G/7JkDjYuvg3/ZMgcbF18G/7JkDjYuvg3/ZAV4yHr4N/2TIHGRdfZ/8AJ7JkDjIuvs/+T2QDjIuvs/8AkP7JkFWzwj/7wb5/ZMg9YLTDxkWGaJzsYyaTr7wmQbIJkBcJEBdjQHiWIC0xoC0xIC0wIChs4QFpsoQHm+wtOkAjtAKA8+S4+gzdCApyVH0GboQFOSo+gzdCAclR9Bm6EA5Jj6Dd0ICnJMfQZuhAOSY+gzdCAckx9Bm6EA5Jj6DN0IByTH0GboQDkmPoM3QgHJMfQZuhAOSY+gzdCAckx9Bm6EBXkqPoM3QgHJUfQZuhAOSo+gzdCAckx9Bm6EBXkqPoM3QgK8lR9Bm6EA5Kj6DN0IC4XVF0GbrUBUXXF0GbrUBey74xmGMB2hrQUBJbGQgLwCgLs0BfhQDCgGFAMKAphQDCgGFAMKAYEAwIBgQFMCAYEAwIBgQDAgGBAMCAYEAwIBgQDAgK4EAwIBgQDCgGBAVwoBhQDCgGFAMKArhQDCgLkAQBAEBRAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQFUAQBAEAQBAf/2Q==" class="img-fluid" alt="Sample image for first version of blog listing">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-7 text-md-left ml-3 mt-3">
+
+     
+      <h4 class="h4 mb-4" th:text="${product100.title}"></h4>
+
+      <p class="font-weight-normal" th:text="${product100.news}"></p>
+      <p class="font-weight-normal">by <a><strong>Admin</strong></a>, 07/02/2019</p>
+
+    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#centralModalSuccess">Read more</button>
+		 <a th:href="${'/product100/delete/' + product100.id}"><button  sec:authorize="hasRole('ADMIN')" type="button" class="btn btn-dark-green btn-xs" onclick="return confirm('Are You Sure to Delete?');">delete </button></a>
+   		<a th:href="${ '/product100/edit/' + product100.id}"><button  sec:authorize="hasRole('ADMIN')" type="button" class="btn btn-dark-green btn-xs">edit</button></a>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+</div>
+<!-- News jumbotron -->
+
+
+
+		<!-- Central Modal Medium Success -->
+<div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-success modal-lg" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">News And Updates</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+        
+         <h4 class="h4 mb-4" th:text="${product100.title}"></h4>
+         <br>
+         <br>
+          <p class="font-weight-normal" th:text="${product100.news}"></p>
+          <br>
+      <p class="font-weight-normal">by <a><strong>Admin</strong></a>, 30/01/2019</p>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+       
+        <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!-- Central Modal Medium Success-->
+		  
+		  
+	  </tr>
+        </table>	  
+		  
+		
+		  
+	
+
+      
+     
+
+    </div>
+  
+		 
+		  
+		  
+        </main>
+      </div>
+    </div>
+    
+       <!-- Footer -->
+<footer class="page-footer font-small light blue">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-12 py-5">
+          <div class="mb-5 flex-center">
+
+            <!-- Facebook -->
+            <a class="fb-ic">
+              <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic">
+              <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+          </div>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+     <img src="https://www.aspitio.com/wp-content/uploads/2017/10/aspitio-logo2x.png" alt="HTML5 Icon" style="width:200px;height:40px;"></a>
+     
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+    <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    
+  </body>
+</html>

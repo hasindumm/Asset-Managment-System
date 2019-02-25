@@ -1,0 +1,487 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title></title>
+
+	<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> 
+	
+	
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+	
+	
+	<style>
+
+	.sidebar-sticky{
+	
+	 width: 100px;
+    height: 1000px;
+  
+	margin-right: 0px;
+	
+	}
+	
+	 
+.container-fluid{
+padding-top: 3px;
+
+}
+
+ 
+
+.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+	
+
+  
+
+
+.nav-item{
+   font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-item1{
+   border-radius: 25px;
+    width: 200px;
+    height: 50px;
+    border: 2px solid #254b87;
+  background-color: #eafcf7;
+  
+}
+
+#img2 {
+
+background-image: url('https://i.pinimg.com/originals/a5/8d/47/a58d479d41264a7e7ce8686b87dd1e1f.jpg');
+
+}
+
+.vl {
+  border-left: 6px solid DodgerBlue;
+  height: 1000px;
+  position: absolute;
+  left: 17%;
+  margin-left: -3px;
+  top: 10;
+}
+
+  </style>
+  
+  
+  </head>
+
+  <body >
+      <!--Navbar-->
+<!--Main Navigation-->
+<header>
+
+   <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue scrolling-navbar">
+    <a class="navbar-brand" href="#"><strong></strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="http://www.horizoncollege.lk/akurahm/resources/images/akura-logo-report.png" alt="HTML5 Icon" style="width:110px;height:40px;"></a>
+        </li>
+    
+     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <li class="nav-item active">
+          <a class="nav-link" href="#" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/products100}">News/Updates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/gallary}">Gallery </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/feedback}">Feedback </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:href="@{/aboutus}">About Us</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+           <li class="nav-item">
+           <p th:inline="text" font-size:15px;><img src="https://image.flaticon.com/icons/svg/660/660611.svg" alt="HTML5 Icon" style="width:45px;height:45x;">&nbsp;&nbsp;[[${#httpServletRequest.remoteUser}]]</p>
+          </li>
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+       <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" style="background-color:#354a55; font-size:20px;"/> 
+          </form>
+        </li>  
+      </ul>
+    </div>
+  </nav>
+
+
+
+<div class="vl"></div>
+  
+
+    <div class="container-fluid" >
+      <div class="row">
+  
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar" id="img2"> 
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item1">
+                <a class="nav-link active1" href="#" >
+                  <span data-feather="home"></span>
+                  Hard Assets <span class="sr-only">(current)</span>
+                </a>
+              </li>
+        <hr>
+        
+        <br>
+        <br>
+        
+        
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')"> 
+                <a class="nav-link" href="#" th:href="@{/products}">
+                  <span data-feather="disc"></span>
+                  Software
+                </a>
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')">
+                <a class="nav-link" href="#" th:href="@{/icon}">
+                  <span data-feather="shopping-cart"></span>
+                  Hard Asset
+                </a>
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')">
+                <a class="nav-link" href="#" th:href="@{/products6}">
+                  <span data-feather="alert-triangle"></span>
+                  Maintenance
+                </a>
+        
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('JOHN')">
+                <a class="nav-link" href="#" th:href="@{/icon2}">
+                  <span data-feather="book-open"></span>
+                  Reservation
+                </a>
+              </li>
+        <hr>
+              <li class="nav-item1" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link" href="#" th:href="@{/icon3}">
+                  <span data-feather="layers"></span>
+                  Reports
+                </a>
+              </li>
+            </ul>
+            
+            <p sec:authorize="hasRole('EXUSER')"> Please Enter Your Details Here</p>
+ 
+            <a sec:authorize="hasRole('EXUSER')" href="#" th:href="@{/product20form}"><button type="button" class="btn btn-danger btn-rounded">External User Details</button></a>
+
+            <a sec:authorize="hasRole('ASTAFF')" href="#" th:href="@{/products35}"><button type="button" class="btn btn-danger btn-rounded">Authorized File Upload </button></a> 
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          
+		  <br>
+		  <br>
+		  <br>
+		  
+		
+		 <!-- Card -->
+<div class="card mx-xl-5">
+
+    <!-- Card body -->
+    <div class="card-body">
+
+        <!-- Default form subscription -->
+        <form class="form-horizontal" th:object="${product8}" th:action="@{/product8}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+            <p class="h4 text-center py-4">Create New Authorized Reservation</p>
+
+            <!-- Default input name -->
+            <label for="defaultFormCardNameEx" class="grey-text font-weight-light"></label>
+            <input type="hidden" id="defaultFormCardNameEx" class="form-control"  th:field="*{reserve_id}">
+
+            <br>
+
+            <!-- Default input email -->
+            <label for="defaultFormCardEmailEx" class="grey-text font-weight-light"></label>
+            <input type="hidden" id="defaultFormCardEmailEx" class="form-control" th:field="*{date_time}">
+
+			
+		
+			<!-- Default input email -->
+            <label for="defaultFormCardEmailEx" class="grey-text font-weight-light"></label>
+            <input type="hidden" id="defaultFormCardEmailEx" class="form-control" th:field="*{asset_type}">
+			<!-- Default input email -->
+            <label for="defaultFormCardEmailEx" class="grey-text font-weight-light"></label>
+            <input type="hidden" id="defaultFormCardEmailEx" class="form-control"  th:field="*{quntity}">
+			<!-- Default input email -->
+            <label for="defaultFormCardEmailEx" class="grey-text font-weight-light"></label>
+            <input type="hidden" id="defaultFormCardEmailEx" class="form-control" th:field="*{type}">
+			<!-- Default input email -->
+            <label for="defaultFormCardEmailEx" class="grey-text font-weight-light"></label>
+            <input type="hidden" id="defaultFormCardEmailEx" class="form-control" th:field="*{req_reason}">
+         
+         
+          <label for="defaultFormCardEmailEx" class="grey-text font-weight-light">Status</label>
+         
+           <select th:field="*{status}">
+           
+           <option th:value="'ACCEPTED'" th:text="ACCEPTED"></option>
+           <option th:value="'REJECTED'" th:text="REJECTED"></option>
+           
+           
+           
+           </select>
+            
+            
+            
+			
+			<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+    <form class="form-horizontal">
+     <div class="form-group ">
+       <label for="defaultFormCardEmailEx" class="grey-text font-weight-light"></label>
+  
+       <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="hidden" th:field="*{start_date}" />
+      
+        <label for="defaultFormCardEmailEx" class="grey-text font-weight-light"></label>
+  
+       <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="hidden" th:field="*{end_date}" />
+      
+     </div>
+     
+    </form>
+   </div>
+  </div>
+ </div>
+</div>
+		
+		
+	
+			
+			
+			
+			
+			
+			
+			
+            <div class="text-center py-4 mt-3">
+                <button id="mybtn1" class="btn btn-outline-purple" type="submit" disabled>Submit<i class="fa fa-paper-plane-o ml-2"></i></button>
+            </div>
+        </form>
+        <!-- Default form subscription -->
+
+    </div>
+    <!-- Card body -->
+
+</div>
+<!-- Card -->
+		 <br>
+		 <br>
+	  <button id="mybtn2" class="btn btn-outline-success btn-block"  onclick="notification()">Mark As Read<i class="fa fa-paper-plane-o ml-2"></i></button>	 
+		 
+		 
+		 
+		  
+        </main>
+      </div>
+    </div>
+    
+       <!-- Footer -->
+<footer class="page-footer font-small light blue">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-12 py-5">
+          <div class="mb-5 flex-center">
+
+            <!-- Facebook -->
+            <a class="fb-ic">
+              <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic">
+              <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+          </div>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+     <img src="https://www.aspitio.com/wp-content/uploads/2017/10/aspitio-logo2x.png" alt="HTML5 Icon" style="width:200px;height:40px;"></a>
+     
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+ 
+
+    <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+	
+	
+	
+	<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+<!-- Include jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+	
+	
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    
+	
+	
+	<script>
+	$(document).ready(function(){
+		var date_input=$('input[name="date"]'); //our date input has the name "date"
+		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+		date_input.datepicker({
+			format: 'yyyy-mm-dd',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+	})
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+
+
+
+<script type="text/javascript">
+	
+var count=0; 
+   var config = {
+    apiKey: "AIzaSyBAQaRKLElezoZ3aGY1_RJS8eRfY_fgUqM",
+    authDomain: "notificatoin-e193f.firebaseapp.com",
+    databaseURL: "https://notificatoin-e193f.firebaseio.com",
+    projectId: "notificatoin-e193f",
+    storageBucket: "notificatoin-e193f.appspot.com",
+    messagingSenderId: "1003373774852"
+  };
+    firebase.initializeApp(config);
+
+
+   
+
+    
+
+
+
+
+   
+
+  
+function notification() {
+	
+	document.getElementById("mybtn1").disabled = false;
+	document.getElementById("mybtn2").disabled = true;
+	
+ 
+
+ var ref2=firebase.database().ref('count').set({
+            count:false
+          });
+
+
+}
+
+
+
+
+
+
+</script>
+	
+	
+  </body>
+</html>
